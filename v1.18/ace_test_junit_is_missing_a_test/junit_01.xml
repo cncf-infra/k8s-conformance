@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <testsuite name="Kubernetes e2e suite" tests="277" failures="0" errors="0" time="4471.131">
+      <testcase name="[sig-api-machinery] CustomResourceDefinition resources [Privileged:ClusterAdmin] custom resource defaulting for requests and from storage works  [Conformance]" classname="Kubernetes e2e suite" time="1.428637341"></testcase>
       <testcase name="[sig-storage] In-tree Volumes [Driver: rbd][Feature:Volumes][Serial] [Testpattern: Pre-provisioned PV (filesystem volmode)] multiVolume [Slow] should access to two volumes with different volume mode and retain data across pod recreation on the same node" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
@@ -54,6 +55,7 @@
       <testcase name="[sig-storage] In-tree Volumes [Driver: azure-disk] [Testpattern: Pre-provisioned PV (default fs)] subPath should fail if subpath with backstepping is outside the volume [Slow]" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
+      <testcase name="[sig-network] DNS should provide DNS for pods for Hostname [LinuxOnly] [Conformance]" classname="Kubernetes e2e suite" time="2.304589055"></testcase>
       <testcase name="[sig-storage] In-tree Volumes [Driver: aws] [Testpattern: Pre-provisioned PV (default fs)] subPath should be able to unmount after the subpath directory is deleted" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
@@ -2411,6 +2413,7 @@
       <testcase name="[sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: blockfs] [Testpattern: Pre-provisioned PV (default fs)] subPath should support readOnly directory specified in the volumeMount" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
+      <testcase name="[sig-network] Networking Granular Checks: Pods should function for node-pod communication: udp [LinuxOnly] [NodeConformance] [Conformance]" classname="Kubernetes e2e suite" time="22.704287"></testcase>
       <testcase name="[sig-storage] In-tree Volumes [Driver: aws] [Testpattern: Dynamic PV (delayed binding)] topology should provision a volume and schedule a pod with AllowedTopologies" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
