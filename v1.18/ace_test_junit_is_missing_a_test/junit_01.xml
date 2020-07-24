@@ -2411,7 +2411,6 @@
       <testcase name="[sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: blockfs] [Testpattern: Pre-provisioned PV (default fs)] subPath should support readOnly directory specified in the volumeMount" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
-      <testcase name="[sig-network] Networking Granular Checks: Pods should function for node-pod communication: udp [LinuxOnly] [NodeConformance] [Conformance]" classname="Kubernetes e2e suite" time="22.704287"></testcase>
       <testcase name="[sig-storage] In-tree Volumes [Driver: aws] [Testpattern: Dynamic PV (delayed binding)] topology should provision a volume and schedule a pod with AllowedTopologies" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
