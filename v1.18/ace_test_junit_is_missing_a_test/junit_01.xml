@@ -5145,8 +5145,6 @@
       <testcase name="[sig-storage] In-tree Volumes [Driver: rbd][Feature:Volumes][Serial] [Testpattern: Dynamic PV (ntfs)][sig-windows] volumes should allow exec of files on the volume" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
-      <testcase name="[sig-network] DNS should resolve DNS of partial qualified names for services [LinuxOnly] [Conformance]" classname="Kubernetes e2e suite" time="34.588983219"></testcase>
-      <testcase name="[sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: tmpfs] [Testpattern: Dynamic PV (ntfs)][sig-windows] volumes should allow exec of files on the volume" classname="Kubernetes e2e suite" time="0">
           <skipped></skipped>
       </testcase>
       <testcase name="[sig-storage] In-tree Volumes [Driver: ceph][Feature:Volumes][Serial] [Testpattern: Pre-provisioned PV (default fs)] subPath should support existing directory" classname="Kubernetes e2e suite" time="0">
