@@ -1,0 +1,6 @@
+vendor: Wise2C Technology
+name: Breeze
+version: v1.17.3
+repo_url: https://github.com/wise2c-devops/breeze
+documentation_url: https://github.com/wise2c-devops/breeze/blob/master/manual/BreezeManual.pdf
+type: installer
