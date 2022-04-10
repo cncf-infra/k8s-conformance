@@ -14524,8 +14524,8 @@ JUnit report was created: /tmp/sonobuoy/results/junit_01.xml
 {"msg":"Test Suite completed","total":346,"completed":346,"skipped":6696,"failed":0}
 
 Ran 346 of 7042 Specs in 5240.868 seconds
-SUCCESS! -- 346 Passed | 0 Failed | 0 Pending | 6696 Skipped
-PASS
+FAIL! -- 341 Passed | 5 Failed | 0 Pending | 6696 Skipped
+FAIL
 
 Ginkgo ran 1 suite in 1h27m22.398651286s
 Test Suite Passed
