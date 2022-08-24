@@ -1,0 +1,9 @@
+vendor: ii.nz
+name: Pair
+version: v1.0.0
+website_url: https://pair.sharing.io/
+repo_url: https://github.com/sharingio/pair/
+documentation_url: https://github.com/sharingio/pair/
+product_logo_url: https://deckhouse.io/images/logos/deckhouse-platform.svg
+type: distribution
+description: 'Pairable sharing environments'
