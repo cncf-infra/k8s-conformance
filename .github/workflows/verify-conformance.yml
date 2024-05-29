@@ -29,9 +29,9 @@ jobs:
           GITHUB_EVENT_PATH: ${{ github.event_path }}
         run: |
           set -x
-          EXTRA_ARGS=()
+          EXTRA_ARGS=""
           if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-            EXTRA_ARGS+=("--pr-event-json-path=$GITHUB_EVENT_PATH")
+            EXTRA_ARGS="--pr-event-json-path=$GITHUB_EVENT_PATH"
           docker run --rm \
             -v "$PWD:$PWD:ro" \
             --workdir "$PWD" \
@@ -42,7 +42,7 @@ jobs:
               --github-app-private-key-path="$PWD/tmp/github-app-private-key" \
               --hmac-secret-file=$PWD/tmp/hmac \
               --repo="$REPO" \
-              ${EXTRA_ARGS[@]}
+              $EXTRA_ARGS
       - name: cleanup
         if: ${{ always() }}
         run: |
