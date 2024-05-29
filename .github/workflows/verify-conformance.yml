@@ -35,7 +35,7 @@ jobs:
           fi
           docker run --rm \
             -v "$PWD:$PWD:ro" \
-            -v "/home/runner:/home/runner:ro" \
+            -v "$RUNNER_TEMP:$RUNNER_TEMP:ro" \
             --workdir "$PWD" \
             ghcr.io/cncf-infra/verify-conformance:latest \
               --github-endpoint=https://api.github.com \
