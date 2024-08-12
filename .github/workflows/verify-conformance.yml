@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
   id-token: write
-
+  packages: read
 
 # NOTE: docs available at
 #       https://github.com/cncf-infra/verify-conformance/blob/main/docs/maintainance.md#deployment
