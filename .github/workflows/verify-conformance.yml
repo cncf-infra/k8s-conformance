@@ -5,6 +5,11 @@ on:
   pull_request:
     types: [opened, reopened]
 
+permissions:
+  contents: read
+  id-token: write
+
+
 # NOTE: docs available at
 #       https://github.com/cncf-infra/verify-conformance/blob/main/docs/maintainance.md#deployment
 
