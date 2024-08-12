@@ -10,8 +10,18 @@ on:
 
 jobs:
   verify-conformance:
+    env:
+      IMAGE: ghcr.io/kubernetes-sigs/verify-conformance:2024-08-13-1141
     runs-on: ubuntu-latest
     steps:
+      - uses: sigstore/cosign-installer@11086d25041f77fe8fe7b9ea4e48e3b9192b8f19 # v3.1.2
+      - name: verify-image
+        run: |
+           cosign verify \
+             --certificate-identity-regexp 'https://github.com/kubernetes-sigs/verify-conformance/.github/workflows/publish.yml@refs/tags/.*' \
+             --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
+             -o text \
+               "$IMAGE"
       - name: write-config
         env:
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
