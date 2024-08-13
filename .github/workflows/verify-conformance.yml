@@ -1,39 +1,21 @@
+name: verify-conformance
 on:
   workflow_dispatch: {}
   schedule:
     - cron: '0 * * * *'
-  pull_request:
-    types: [opened, reopened]
-
-permissions:
-  contents: read
-  id-token: write
-  packages: read
 
 # NOTE: docs available at
-#       https://github.com/cncf-infra/verify-conformance/blob/main/docs/maintainance.md#deployment
+#       https://github.com/kubernetes-sigs/verify-conformance/blob/main/docs/maintainance.md#deployment
+
+# TODO(BobyMCbobs): auto update image, but don't use latest tag
 
 jobs:
   verify-conformance:
+    if: ${{ github.repository == 'cncf/k8s-conformance' }}
     env:
-      IMAGE: ghcr.io/kubernetes-sigs/verify-conformance:2024-08-13-1141
+      IMAGE: ghcr.io/kubernetes-sigs/verify-conformance:2024-08-14-1030
     runs-on: ubuntu-latest
     steps:
-      - uses: sigstore/cosign-installer@11086d25041f77fe8fe7b9ea4e48e3b9192b8f19 # v3.1.2
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: verify-image
-        if: never()
-        run: |
-           cosign verify \
-             --certificate-identity-regexp 'https://github.com/kubernetes-sigs/verify-conformance/.github/workflows/publish.yml@refs/tags/.*' \
-             --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
-             -o text \
-               "$IMAGE"
       - name: write-config
         env:
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
@@ -47,26 +29,18 @@ jobs:
         env:
           GH_APP_ID: ${{ secrets.GH_APP_ID }}
           REPO: ${{ github.repository }}
-          GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_EVENT_PATH: ${{ github.event_path }}
         run: |
           set -x
-          EXTRA_ARGS=""
-          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-            EXTRA_ARGS="--pr-event-json-path=$GITHUB_EVENT_PATH"
-          fi
           docker run --rm \
             -v "$PWD:$PWD:ro" \
-            -v "$RUNNER_TEMP:$RUNNER_TEMP:ro" \
             --workdir "$PWD" \
-            ghcr.io/cncf-infra/verify-conformance:latest \
+            "${{ env.IMAGE }}" \
               --github-endpoint=https://api.github.com \
               --dry-run=false \
-              --github-app-id="$GH_APP_ID" \
+              --github-app-id="${{ env.GH_APP_ID }}" \
               --github-app-private-key-path="$PWD/tmp/github-app-private-key" \
               --hmac-secret-file=$PWD/tmp/hmac \
-              --repo="$REPO" \
-              $EXTRA_ARGS
+              --repo="$REPO"
       - name: cleanup
         if: ${{ always() }}
         run: |
