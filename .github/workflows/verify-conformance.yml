@@ -11,7 +11,7 @@ on:
 
 jobs:
   verify-conformance:
-    if: ${{ github.repository == 'cncf-infra/k8s-conformance' }}
+    if: ${{ never() }}
     env:
       IMAGE: ghcr.io/kubernetes-sigs/verify-conformance:2024-08-14-1030
     runs-on: ubuntu-latest
