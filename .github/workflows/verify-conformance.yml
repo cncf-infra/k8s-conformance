@@ -11,9 +11,9 @@ on:
 
 jobs:
   verify-conformance:
-    if: ${{ never() }}
+    if: ${{ github.repository == 'cncf-infra/k8s-conformance' }}
     env:
-      IMAGE: ghcr.io/kubernetes-sigs/verify-conformance:2024-08-14-1030
+      IMAGE: gcr.io/k8s-staging-apisnoop/verify-conformance/verify-conformance:v20240814-2024-08-14-1030-6-g354ea7d@sha256:186655142026fab09d6791ce908f0b889ff201c345b342e16fe9d74b6442a66e
     runs-on: ubuntu-latest
     steps:
       - name: write-config
